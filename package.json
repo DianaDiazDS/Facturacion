@@ -1,0 +1,47 @@
+{
+  "name": "app-ensomongua",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "npm --prefix client start",
+    "deploy": "npm run build-client && npx electron-builder --win",
+    "server": "nodemon server/index.js",
+    "electron": "wait-on http://localhost:3000 && electron .",
+    "build": "npm run build-client && electron .",
+    "build-client": "npm --prefix client run build"
+  },
+  "author": "Diana Diaz, Luis Pinto",
+  "license": "ISC", 
+  "devDependencies": {
+    "concurrently": "^9.2.0",
+      
+    "nodemon": "^3.1.10",
+    "wait-on": "^8.0.4",
+    
+  "electron": "^37.2.5",
+    "electron-builder": "^26.0.12"
+  },
+  "dependencies": {
+  "electron-is-dev": "^3.0.1"
+}
+,
+  "build": {
+    "appId": "com.miempresa.miapp",
+    "productName": "MiAppEmsoMongua",
+    "directories": {
+      "buildResources": "assets",
+      "output": "dist"
+    },
+    "files": [
+      "client/dist/**/*",
+      "server/**/*",
+      "main.js",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis"
+    }
+  }
+}

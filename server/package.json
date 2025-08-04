@@ -1,0 +1,15 @@
+{
+  "name": "back-ensomungua-app",
+  "version": "1.0.0",
+  "description": "Aplicacion para la logica del negocio, de la app de facturacion de emsomongua",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Diana Diaz, Luis Pinto",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}
