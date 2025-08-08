@@ -1,16 +1,28 @@
 const express = require('express');
 const cors = require('cors');
+const path = require("path");
+
+// require("dotenv").config();
+require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
+console.log('DB_USER:', process.env.DB_USER);
+require("./mongo/connect-db");
+
 const app = express();
-const PORT = 5000;
+
+app.set("PORT", process.env.PORT || 4000);
 
 app.use(cors());
 app.use(express.json());
 
 // Ruta de ejemplo
-app.get('/api/mensaje', (req, res) => {
-  res.json({ mensaje: 'Hola desde el servidor Node.js!' });
+app.use('/bill', require('./routes/facturacion'));
+
+app.use("/", (req, res) =>
+  res.send("Back de la aplicacion")
+);
+
+app.listen(app.get("PORT"), () => {
+  console.log(`Servidor backend corriendo en http://localhost:${app.get("PORT")}`);
 });
 
-app.listen(PORT, () => {
-  console.log(`Servidor backend corriendo en http://localhost:${PORT}`);
-});
+module.exports = app;
