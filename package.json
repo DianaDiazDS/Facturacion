@@ -13,20 +13,17 @@
     "build-client": "npm --prefix client run build"
   },
   "author": "Diana Diaz, Luis Pinto",
-  "license": "ISC", 
+  "license": "ISC",
   "devDependencies": {
     "concurrently": "^9.2.0",
-      
+    "electron": "^37.2.5",
+    "electron-builder": "^26.0.12",
     "nodemon": "^3.1.10",
-    "wait-on": "^8.0.4",
-    
-  "electron": "^37.2.5",
-    "electron-builder": "^26.0.12"
+    "wait-on": "^8.0.4"
   },
   "dependencies": {
-  "electron-is-dev": "^3.0.1"
-}
-,
+    "electron-is-dev": "^3.0.1"
+  },
   "build": {
     "appId": "com.miempresa.miapp",
     "productName": "MiAppEmsoMongua",
